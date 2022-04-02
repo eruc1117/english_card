@@ -1,0 +1,48 @@
+@mixin aColor($aColor) {
+  color: $aColor;
+}
+
+@mixin centerFlex ($flexDirection, $justifyContent) {
+  display: flex;
+  flex-direction: $flexDirection;
+  flex-wrap: nowrap;
+  justify-content: $justifyContent;
+  align-items: center;
+}
+
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(197, 197, 197);
+  @include centerFlex(row, space-between);
+  a {
+    @include aColor(black);
+    font-weight: 900;
+  }
+  .nav-text {
+    margin-left: 1%;
+  }
+  .nav-button {
+    margin-right: 1%;
+  }
+  .nav-button-text {
+  font-size: 18px;
+  @include aColor(orange);
+  }
+}
+
+
+.nav-button {
+  @include centerFlex(column, center);
+  height: 35px;
+  line-height: 35px;
+  width: 65px;
+  background-color: white;
+  border: 2px;
+  border-width:2px; 
+  border-color:#000000; 
+  border-style:solid;
+  border-radius: 15%;
+}
+
