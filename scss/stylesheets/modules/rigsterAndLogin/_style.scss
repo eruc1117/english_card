@@ -1,0 +1,148 @@
+@mixin flex-display ($direction) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin border ($color) {
+  border: 2px;
+  border-width: 2px;
+  border-color: $color;
+  border-style: solid;
+}
+
+$input-width : 200px;
+$heighSmScreen : 40px;
+$heighBigScreen : 50px;
+
+.container {
+  margin-top: 8%;
+  @include flex-display(column);
+
+  div {
+    position: relative;
+  }
+
+  input {
+    margin-bottom: 60px;
+    height: $heighSmScreen;
+    width: $input-width;
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: -30px;
+  }
+
+  button {
+    height: $heighSmScreen;
+    width: $input-width/2;
+    background-color: rgb(0, 0, 0);
+    @include border (black);
+    color: white;
+
+    &:hover {
+      background-color: rgb(255, 255, 255);
+      color: black;
+      border-width: 0px;
+    }
+  }
+}
+
+.resetPassword,
+.fbLogin {
+  margin-top: 1%;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.fbLogin {
+  height: $heighSmScreen;
+  width: $input-width/2;
+  background-color: rgb(0, 0, 0);
+  @include border (black);
+  color: white;
+  text-align: center;
+  line-height: $heighSmScreen;
+
+  &:hover {
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+
+
+  h1 {
+    font-size: 72px;
+  }
+
+  .container {
+    margin-top: 8%;
+    @include flex-display(column);
+
+    div {
+      position: relative;
+    }
+
+    input {
+      margin-bottom: 40px;
+      height: $heighBigScreen;
+      width: $input-width*2;
+      font-size: 24px;
+    }
+
+    label {
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 10px;
+      left: -100px;
+      display: inline-block;
+      text-align: right;
+    }
+
+    button {
+      font-size: 24px;
+      height: $heighBigScreen;
+      width: $input-width;
+      background-color: black;
+      @include border (black);
+      color: white;
+
+      &:hover {
+        background-color: rgb(255, 255, 255);
+        color: black;
+        border-width: 0px;
+      }
+    }
+
+    .fbLogin {
+      margin-top: 10px;
+      height: $heighBigScreen;
+      width: $input-width;
+      background-color: rgb(0, 0, 0);
+      @include border (black);
+      color: white;
+      text-align: center;
+      line-height: $heighBigScreen;
+
+      &:hover {
+        background-color: rgb(255, 255, 255);
+        border-width: 0px;
+        color: #000;
+      }
+    }
+  }
+}
