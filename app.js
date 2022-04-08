@@ -22,16 +22,11 @@ app.use(
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('index')
 })
 
-app.get('/user/login', (req, res) => {
-  res.render('login')
-})
 
-app.get('/user/register', (req, res) => {
-  res.render('register')
-})
+
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`)

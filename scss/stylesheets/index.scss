@@ -1,0 +1,266 @@
+@media screen and (max-width: 900px) {
+  $lsitHeigh: 40px;
+
+  .indexBody {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+
+    .yesterday,
+    .today {
+      display: none;
+    }
+  }
+
+  .words {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+
+    .search {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      align-content: stretch;
+      margin-top: 10%;
+      margin-bottom: 50px;
+
+      input {
+        width: 300px;
+        height: 30px;
+        font-size: 24px;
+      }
+
+      button {
+        background-color: black;
+        color: white;
+
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+
+    ul {
+      padding: 1%;
+      width: 500px;
+      height: 400px;
+      overflow: scroll;
+      overflow-x: hidden;
+      border-style: solid;
+      border-width: 2px;
+      border-color: black;
+
+      li {
+        height: $lsitHeigh;
+        line-height: $lsitHeigh;
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: stretch;
+
+        a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          font-size: 24px;
+        }
+      }
+
+      li:nth-child(odd) {
+        background: rgba($color: #fdfdfd5b, $alpha: 0.5);
+      }
+
+      li:nth-child(even) {
+        background: rgba($color: #00b0f55b, $alpha: 0.5);
+      }
+    }
+  }
+
+  .functionList {
+    grid-area: func;
+
+    .container {
+      height: 200px;
+
+      li {
+        text-align: center;
+        height: 20px;
+        margin-top: 10%;
+        margin-bottom: 20%;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  $lsitHeigh: 40px;
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  .indexBody {
+    color: white;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+      "yesterday main func"
+      "today main futire";
+  }
+
+  .yesterday {
+    text-align: center;
+    grid-area: yesterday;
+
+    h3 {
+      margin-top: 8%;
+      font-size: 24px;
+    }
+
+    p {
+      margin-top: 3%;
+    }
+  }
+
+  .today {
+    text-align: center;
+    grid-area: today;
+
+    h3 {
+      margin-top: 8%;
+      font-size: 24px;
+    }
+
+    p {
+      margin-top: 3%;
+    }
+  }
+
+  .words {
+    grid-column: 2/2;
+    grid-row: 1/3;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+
+    .search {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      align-content: stretch;
+      margin-top: 10%;
+      margin-bottom: 50px;
+
+      input {
+        width: 300px;
+        height: 30px;
+        font-size: 24px;
+      }
+
+      button {
+        background-color: black;
+        color: white;
+
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+
+    ul {
+      padding: 1%;
+      width: 500px;
+      height: 400px;
+      overflow: scroll;
+      overflow-x: hidden;
+      border-style: solid;
+      border-width: 2px;
+      border-color: black;
+
+      li {
+        height: $lsitHeigh;
+        line-height: $lsitHeigh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: stretch;
+
+        a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          font-size: 24px;
+
+          .action {
+            height: $lsitHeigh;
+            line-height: $lsitHeigh;
+
+            a {
+              margin-left: 5px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+
+      li:nth-child(odd) {
+        background: rgba($color: #fdfdfd5b, $alpha: 0.5);
+      }
+
+      li:nth-child(even) {
+        background: rgba($color: #00b0f55b, $alpha: 0.5);
+      }
+    }
+  }
+
+  .functionList {
+    grid-area: func;
+
+    .container {
+      height: 200px;
+
+      li {
+        height: 20px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
