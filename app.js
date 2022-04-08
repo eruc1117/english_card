@@ -29,6 +29,10 @@ app.get('/user/login', (req, res) => {
   res.render('login')
 })
 
+app.get('/user/register', (req, res) => {
+  res.render('register')
+})
+
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`)
 });
