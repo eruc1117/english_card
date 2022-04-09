@@ -22,7 +22,7 @@ app.use(
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('test')
+  res.render('testSetting')
 })
 
 
