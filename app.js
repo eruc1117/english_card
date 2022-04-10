@@ -6,6 +6,8 @@ const path = require('path')
 const routes = require('./routes')
 const PORT = 3000
 
+require('./config/mongoose')
+
 const handlebars = exphbs.create({
 })
 app.engine('.handlebars', handlebars.engine)
