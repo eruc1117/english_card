@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="card border-info mx-auto" style="max-width: 30rem;">
+    <form action="/enCrud/new" method="post">
+      <div class="mx-2 my-2">
+        <div class="mb-3">
+          <label for="word" class="form-label">word</label>
+          <input type="text" class="form-control" name="word" id="word" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">part of speech</label>
+          <select class="form-select" aria-label="Default select example" name="partOfSpeech" required>
+            <option value="" selected>part of speech</option>
+            <option value="n.">n.</option>
+            <option value="adj.">adj.</option>
+            <option value="adv.">adv.</option>
+            <option value="pron.">pron.</option>
+            <option value="v.">v.</option>
+            <option value="art.">art.</option>
+            <option value="prep.">prep.</option>
+            <option value="conj.">conj.</option>
+            <option value="excl.">excl.</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="wordDefinitionEn" class="form-label">english definition</label>
+          <input type="text" class="form-control" id="wordDefinitionEn" name="enExplain" required>
+        </div>
+        <div class="mb-3">
+          <label for="wordDefinition" class="form-label">definition</label>
+          <input type="text" class="form-control" id="wordDefinition" name="explain" required>
+        </div>
+        <div class="mb-3">
+          <label for="wordSentence" class="form-label">sentence</label>
+          <input type="text" class="form-control" id="wordSentence" name="sentence" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

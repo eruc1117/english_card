@@ -28,13 +28,11 @@ const RecordSchema = new schema({
   },
   correctTimes: {
     type: Number,
-    required: true,
     min: 0,
     max: 5
   },
   mistakeTimes: {
     type: Number,
-    required: true,
     min: 0,
     max: 5
   },

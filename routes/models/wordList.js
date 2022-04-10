@@ -1,7 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const PORT = 3000
+
+const customize = require('../../function/constructor')
+const wordListCss = new customize.PageCss('wordList', PORT)
+
 
 const Word = require('../../models/WordModel')
+
 
 router.get('/', (req, res) => {
   async function displayAllWords() {
@@ -11,8 +17,10 @@ router.get('/', (req, res) => {
         word.remember = `` :
         word.remember = `<i class="fa-solid fa-crown"></i>`
     })
-    console.log(wordList)
-    res.render('index', { wordList })
+    res.render('index', {
+      cssStyle: wordListCss.css,
+      wordList
+    })
   }
   displayAllWords()
 })

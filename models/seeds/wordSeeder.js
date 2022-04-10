@@ -4,7 +4,7 @@ const Word = require('../WordModel')
 
 db.once('open', () => {
   Word.create({
-    id: 1,
+    id: 2,
     word: 'example',
     partOfSpeech: 'n.',
     enExplain: 'something that is typical of the group of things that it is a member of',

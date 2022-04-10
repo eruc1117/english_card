@@ -21,6 +21,7 @@ app.use(
     outputStyle: 'compressed',
   })
 )
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 // 將 request 導入路由器
