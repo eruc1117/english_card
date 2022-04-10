@@ -24,13 +24,18 @@
     </div>
     <div class="list">
       <ul>
+        {{#each wordList}}
         <li class="item">
-          <a href="/#">12</a>
+          <div class="remember">
+            {{{this.remember}}}
+            <a class="word" href="/#">{{this.word}}</a>
+          </div>
           <div class="action">
             <a href="/#">edit</a>
             <a href="/#">delete</a>
           </div>
         </li>
+        {{/each}}
       </ul>
     </div>
   </div>

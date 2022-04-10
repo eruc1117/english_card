@@ -9,13 +9,13 @@ const test = require('./models/test')
 const home = require('./models/home')
 const enWordList = require('./models/wordList')
 
-router.use('/', home)
 router.use('/enCrud', enCrud)
 router.use('/login', login)
 router.use('/register', register)
 router.use('/testSetting', testSetting)
 router.use('/test', test)
-router.use('./enWordList', enWordList)
+router.use('/enWordList', enWordList)
+router.use('/', home)
 
 
 module.exports = router

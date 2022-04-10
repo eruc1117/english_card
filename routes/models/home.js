@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/enCrud', () => {
-  res.render('index')
+router.get('/', (req, res) => {
+  res.render('home')
 })
 
 module.exports = router

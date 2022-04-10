@@ -21,8 +21,8 @@
   "homepage": "https://github.com/eruc1117/english_card#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "express-handlebars": "^6.0.3",
-    "node-sass-middleware": "^1.0.1",
-    "router": "^1.3.6"
+    "express-handlebars": "^6.0.4",
+    "mongoose": "^6.2.10",
+    "node-sass-middleware": "^1.0.1"
   }
 }

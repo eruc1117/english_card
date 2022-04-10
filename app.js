@@ -23,9 +23,6 @@ app.use(
 )
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-  res.render('testSetting')
-})
 // 將 request 導入路由器
 app.use(routes)
 
