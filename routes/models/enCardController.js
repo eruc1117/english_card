@@ -5,7 +5,9 @@ const PORT = 3000
 
 const customize = require('../../function/constructor')
 const page = new customize.PageCss('createWord', PORT)
+const detail = new customize.PageCss('detail', PORT)
 
+//新增單字功能
 router.get('/new', (req, res) => {
   res.render('createWord', { cssStyle: page.css })
 })
@@ -21,6 +23,7 @@ router.post('/new', (req, res) => {
   createWord(req)
 })
 
+//修改單字功能
 router.get('/edit/:id', (req, res) => {
   async function editWordPage(req) {
     const id = req.params.id
@@ -40,4 +43,13 @@ router.post('/edit/:id', (req, res) => {
   editWord(req)
 })
 
+//讀取單字功能
+router.get('/read/:id', (req, res) => {
+  async function readWord(req) {
+    const id = req.params.id
+    const word = await Word.findOne({ id }).lean()
+    res.render('detail', { word, cssStyle: detail.css })
+  }
+  readWord(req)
+})
 module.exports = router

@@ -4,20 +4,20 @@
   </div>
   <div class="word">
     <div class="block">
-      <h1>translation</h1>
-      <p class="part-of-speech">詞性</p>
+      <h1>{{word.word}}</h1>
+      <p class="part-of-speech">{{word.partOfSpeech}}</p>
       <div class="explain-en">
-        xxxxxxxxx
+        {{word.enExplain}}
       </div>
       <div class="explain">
-        xxxxxxxxx
+        {{word.explain}}
       </div>
       <div class="sentence">
-        <p>sadadasdasdadadsdas</p>
+        <p>{{word.sentence}}</p>
       </div>
     </div>
     <div class="function">
-      <a href="/#">Edit</a>
+      <a href="/enCrud/edit/{{word.id}}">Edit</a>
       <a href="/#">Delete</a>
       <a href="/#">Home</a>
     </div>
