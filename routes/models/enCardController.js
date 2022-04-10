@@ -57,23 +57,36 @@ router.get('/read/:id', (req, res) => {
 router.get('/previous/:id', (req, res) => {
   async function previousWord(req) {
     const id = Number(req.params.id)
+    const preWord = await Word.find({ id: { $lt: id } }).sort({ id: -1 }).limit(1).lean()
+    console.log(preWord)
     if ((id - 1) === 0) {
       return res.redirect(`/enCrud/read/${id}`)
     }
-    res.redirect(`/enCrud/read/${id - 1}`)
+    res.redirect(`/enCrud/read/${preWord[0].id}`)
   }
   previousWord(req)
 })
 router.get('/next/:id', (req, res) => {
   async function nextWord(req) {
     const id = Number(req.params.id)
-    const nextWord = await Word.find({ id: (id + 1) }).lean()
-    if (nextWord.length === 0) {
+    const nextWordList = await Word.find({ id: { $gt: id } }).sort({ id: 1 }).limit(1).lean()
+    console.log(nextWordList)
+    if (nextWordList.length === 0) {
       return res.redirect(`/enCrud/read/${id}`)
     }
-    res.redirect(`/enCrud/read/${id + 1}`)
+    res.redirect(`/enCrud/read/${nextWordList[0].id}`)
   }
   nextWord(req)
+})
+
+//刪除單字
+router.get('/delete/:id', (req, res) => {
+  async function deleteWord(req) {
+    const id = Number(req.params.id)
+    await Word.findOneAndDelete({ id })
+    res.redirect('/enWordList')
+  }
+  deleteWord(req)
 })
 
 module.exports = router
