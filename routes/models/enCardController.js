@@ -52,4 +52,28 @@ router.get('/read/:id', (req, res) => {
   }
   readWord(req)
 })
+
+//單字詳細畫面中直接跳到前一個或下一個
+router.get('/previous/:id', (req, res) => {
+  async function previousWord(req) {
+    const id = Number(req.params.id)
+    if ((id - 1) === 0) {
+      return res.redirect(`/enCrud/read/${id}`)
+    }
+    res.redirect(`/enCrud/read/${id - 1}`)
+  }
+  previousWord(req)
+})
+router.get('/next/:id', (req, res) => {
+  async function nextWord(req) {
+    const id = Number(req.params.id)
+    const nextWord = await Word.find({ id: (id + 1) }).lean()
+    if (nextWord.length === 0) {
+      return res.redirect(`/enCrud/read/${id}`)
+    }
+    res.redirect(`/enCrud/read/${id + 1}`)
+  }
+  nextWord(req)
+})
+
 module.exports = router
