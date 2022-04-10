@@ -10,6 +10,22 @@ const RecordSchema = new schema({
     type: String,
     required: true
   },
+  partOfSpeech: {
+    type: String,
+    required: true
+  },
+  enExplain: {
+    type: String,
+    required: true
+  },
+  explain: {
+    type: String,
+    required: true
+  },
+  sentence: {
+    type: String,
+    required: true
+  },
   correctTimes: {
     type: Number,
     required: true,
@@ -24,7 +40,8 @@ const RecordSchema = new schema({
   },
   userId: {  // 加入關聯設定
     type: Number,
-    required: true,
+    //required: true,開發終暫時不用
+    
     ref: 'User'
   }
 })
