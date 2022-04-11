@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars')
 const sassMiddleware = require('node-sass-middleware')
 const path = require('path')
 const routes = require('./routes')
+const cookieParser = require('cookie-parser')
 const PORT = 3000
 
 require('./config/mongoose')
@@ -21,6 +22,7 @@ app.use(
     outputStyle: 'compressed',
   })
 )
+app.use(cookieParser('eruc11111'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 

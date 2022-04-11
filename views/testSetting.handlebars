@@ -1,8 +1,10 @@
 <div class="block">
-  <div class="test-setting">
-    <h1>填空測驗</h1>
-    <label>測驗題數</label>
-    <input>
-    <button class="start">開始</button>
-  </div>
+  <form action="/testSetting/start" method="post">
+    <div class="test-setting">
+      <h1>填空測驗</h1>
+      <label>測驗題數(1~10)</label>
+      <input name="number" type="number" min="1" max="10" required>
+      <button type="submit" class="start">開始</button>
+    </div>
+  </form>
 </div>

@@ -16,7 +16,11 @@ router.post('/new', (req, res) => {
   async function createWord(req) {
     const word = req.body
     const latestItem = await Word.find().sort({ _id: -1 }).limit(1).lean()
-    word.id = Number(latestItem[0].id) + 1
+    if (latestItem.length === 0) {
+      word.id = 1
+    } else {
+      word.id = Number(latestItem[0].id) + 1
+    }
     await Word.create(word)
     res.redirect('/enWordList')
   }
@@ -58,7 +62,6 @@ router.get('/previous/:id', (req, res) => {
   async function previousWord(req) {
     const id = Number(req.params.id)
     const preWord = await Word.find({ id: { $lt: id } }).sort({ id: -1 }).limit(1).lean()
-    console.log(preWord)
     if ((id - 1) === 0) {
       return res.redirect(`/enCrud/read/${id}`)
     }
@@ -70,7 +73,6 @@ router.get('/next/:id', (req, res) => {
   async function nextWord(req) {
     const id = Number(req.params.id)
     const nextWordList = await Word.find({ id: { $gt: id } }).sort({ id: 1 }).limit(1).lean()
-    console.log(nextWordList)
     if (nextWordList.length === 0) {
       return res.redirect(`/enCrud/read/${id}`)
     }
