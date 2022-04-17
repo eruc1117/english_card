@@ -10,6 +10,7 @@ const testSetting = require('./models/testSetting')
 const test = require('./models/test')
 const home = require('./models/home')
 const enWordList = require('./models/wordList')
+const user = require('./models/user')
 
 router.use('/login', login)
 router.use('/logout', logout)
@@ -18,6 +19,7 @@ router.use('/enWordList', authenticator, enWordList)
 router.use('/enCrud', authenticator, enCrud)
 router.use('/testSetting', authenticator, testSetting)
 router.use('/test', authenticator, test)
+router.use('/user', authenticator, user)
 router.use('/', home)
 
 
