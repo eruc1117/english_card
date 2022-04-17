@@ -5,6 +5,7 @@ const PORT = 3000
 
 const customize = require('../../function/constructor')
 const userCss = new customize.PageCss('user', PORT)
+const checkCss = new customize.PageCss('check', PORT)
 
 router.get('/', (req, res) => {
   async function userInfoDisplay(req) {
@@ -19,5 +20,8 @@ router.get('/', (req, res) => {
   userInfoDisplay(req)
 })
 
+router.get('/captcha', (req, res) => {
+  res.render('captcha', {cssStyle: checkCss.css})
+})
 
 module.exports = router
