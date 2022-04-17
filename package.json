@@ -20,11 +20,13 @@
   },
   "homepage": "https://github.com/eruc1117/english_card#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.4",
     "mongodb": "^4.5.0",
     "mongoose": "^6.2.10",
-    "node-sass-middleware": "^1.0.1"
+    "node-sass-middleware": "^1.0.1",
+    "passport-local": "^1.0.0"
   }
 }
