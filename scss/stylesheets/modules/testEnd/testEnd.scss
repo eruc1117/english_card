@@ -6,7 +6,7 @@ body {
   height: 100%;
 }
 
-.word {
+.contain {
   margin-top: 5%;
   height: 100%;
   line-height: 100%;
@@ -36,16 +36,14 @@ body {
   }
 }
 
-.submit {
-  margin: auto;
+.home {
   margin-top: 5%;
-  margin-bottom: 5%;
-  background: rgba($color: #01dcf5, $alpha: 0.3);
-  width: 100px;
-  height: 50px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
   font-size: 24px;
-  &:hover {
-    background-color: white;
-    color: #000000;
-  }
+}
+
+.word {
+  margin-top: 3%;
 }

@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.post('/start', (req, res) => {
   const testWordNum = req.body.number
-  res.cookie('test', testWordNum)
+  res.cookie('test', testWordNum, { maxAge: 90000, signed: true })
   res.cookie('numbering', 1)
   res.redirect('/test/1')
 })

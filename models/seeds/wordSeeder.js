@@ -9,9 +9,7 @@ db.once('open', () => {
     partOfSpeech: 'n.',
     enExplain: 'something that is typical of the group of things that it is a member of',
     explain: '範例',
-    sentence: 'This painting is a marvellous example of her work.',
-    correctTimes: 0,
-    mistakeTimes: 0,
+    sentence: 'This painting is a marvellous example of her work.'
   }).then(() => {
     console.log('Word Seeder done!')
     process.exit()

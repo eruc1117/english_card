@@ -1,20 +1,19 @@
 <div class="test-body">
-  <div class="previous">
-    <a href="/#">Previous</a>
-  </div>
+  <form action="/test/submit" method="post">
   <div class="word">
+    {{#each examination}}
     <div class="block">
-      <h1>第x題</h1>
+      <h1 class="test">第{{this.examNum}}題</h1>
       <div class="sentence">
-        <p>sadadasdasdadadsdas</p>
+        <p>{{this.sentence}}</p>
       </div>
       <div class="ans">
-        <label>Answer</label>
-        <input>
+        <label for="{{this.examNum}}">Answer</label>
+        <input type="text" class="ans" id="{{this.examNum}}" name="{{this.examNum}}">
       </div>
     </div>
+    {{/each}}
+    <button class="submit">submit</button>
   </div>
-  <div class="next">
-    <a href="/#">Next</a>
-  </div>
+  </form>
 </div>

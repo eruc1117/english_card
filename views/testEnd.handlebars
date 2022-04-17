@@ -1,0 +1,26 @@
+<div class="test-body">
+  <div class="contain">
+    <div class="block">
+      <h1>回答正確</h1>
+      <div class="word">
+        {{#each end}}
+        {{#if this.correct}}
+        <h6 class="correct">{{this.word}}</h6>
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="block">
+      <h1>回答錯誤</h1>
+      <div class="word">
+        {{#each end}}
+        {{#if this.correct}}
+        {{else}}
+        <h6 class="correct">{{this.word}}</h6>
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
+    <a class="home" href="/enWordList">Home</a>
+  </div>
+</div>
