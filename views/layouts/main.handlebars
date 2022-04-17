@@ -13,9 +13,16 @@
   <title>Document</title>
 </head>
 <div class="nav">
-  <a class="nav-text" href="/accounts/home">
+  <a class="nav-text" href="/enWordList">
     English Card
   </a>
+  {{#if isAuthenticated}}
+  <div class="nav-button">
+    <a class="nav-button-text" href="/logout">
+      登出
+    </a>
+  </div>
+  {{/if}}
 </div>
 
 <body>

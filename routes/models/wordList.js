@@ -11,7 +11,10 @@ const Word = require('../../models/WordModel')
 
 router.get('/', (req, res) => {
   async function displayAllWords() {
-    const wordList = await Word.find().lean()
+    const userId = req.user.id
+    const wordList = await Word.find({
+      userId
+    }).lean()
     wordList.forEach(word => {
       word.correctTimes !== 5 ?
         word.remember = `` :

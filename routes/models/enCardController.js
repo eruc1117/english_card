@@ -21,6 +21,7 @@ router.post('/new', (req, res) => {
     } else {
       word.id = Number(latestItem[0].id) + 1
     }
+    word.userId = req.user.id
     await Word.create(word)
     res.redirect('/enWordList')
   }

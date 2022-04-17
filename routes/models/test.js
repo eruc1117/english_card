@@ -13,11 +13,13 @@ const testEndCss = new customize.PageCss('testEnd', PORT)
 
 router.get('/:num', (req, res) => {
   async function wordExam(req) {
+    const userId = req.user.id
     const testCookie = Number(req.signedCookies.test)
     await client.connect();
     const totalTestWord = await db.collection('records')
       .aggregate(
-        [{ $sample: { size: testCookie } }]
+        [{ "$match": { userId } },
+        { $sample: { size: testCookie } }]
       ).toArray()
     const examId = []
     for (let index = 0; index < totalTestWord.length; index++) {
@@ -37,10 +39,12 @@ router.get('/:num', (req, res) => {
 
 router.post('/submit', (req, res) => {
   async function checkAns() {
+    const userId = req.user.id
     const examNum = (req.signedCookies.examId)
     const ans = Object.values(req.body)
     await client.connect();
     const totalWord = await db.collection('records').find(
+      { userId } ,
       { id: { $in: examNum } })
       .project({
         'id': 1,
