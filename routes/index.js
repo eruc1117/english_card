@@ -2,25 +2,15 @@ const express = require('express')
 const router = express.Router()
 const { authenticator } = require('../middleware/auth')
 
-const enCrud = require('./models/enCardController')
-const login = require('./models/login')
-const register = require('./models/register')
-const logout = require('./models/logout')
-const testSetting = require('./models/testSetting')
-const test = require('./models/test')
+// 路由載入
+const words = require('./models/words')
 const home = require('./models/home')
-const enWordList = require('./models/wordList')
-const user = require('./models/user')
+const loginRegister = require('./models/loginRegister ')
+const test = require('./models/test')
 
-router.use('/login', login)
-router.use('/logout', logout)
-router.use('/register', register)
-router.use('/enWordList', authenticator, enWordList)
-router.use('/enCrud', authenticator, enCrud)
-router.use('/testSetting', authenticator, testSetting)
+router.use('/word', authenticator, words)
+router.use('/loginRegister', loginRegister)
 router.use('/test', authenticator, test)
-router.use('/user', authenticator, user)
 router.use('/', home)
-
 
 module.exports = router
