@@ -20,7 +20,7 @@ const wordController = {
           word.remember = `` :
           word.remember = `<i class="fa-solid fa-crown"></i>`
       })
-      res.render('index', {
+      res.render('words/index', {
         cssStyle: wordListCss.css,
         wordList
       })
@@ -37,7 +37,7 @@ const wordController = {
       id,
       userId: req.user.id
     }).lean()
-    res.render('detail', { word, cssStyle: detail.css })
+    res.render('words/detail', { word, cssStyle: detail.css })
   },
   //單字詳細畫面中直接跳到前一個
   previousWord: async (req, res) => {
@@ -60,7 +60,7 @@ const wordController = {
   },
   //新增單字功能
   newWordPage: (req, res) => {
-    res.render('createWord', { cssStyle: page.css })
+    res.render('words/createWord', { cssStyle: page.css })
   },
   createWord: async (req, res) => {
     const word = req.body
@@ -77,7 +77,7 @@ const wordController = {
   editWordPage: async (req, res) => {
     const id = req.params.id
     const word = await Word.findOne({ id }).lean()
-    res.render('editWord', { word, cssStyle: page.css })
+    res.render('words/editWord', { word, cssStyle: page.css })
   },
   editWord: async (req, res) => {
     const word = req.body

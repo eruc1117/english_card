@@ -9,7 +9,7 @@ const registerCss = new customize.PageCss('register', PORT)
 
 const loginRegisterController = {
   loginPage: (req, res) => {
-    res.render('login', { cssStyle: loginCss.css })
+    res.render('user/login', { cssStyle: loginCss.css })
   },
   login: () => {
     req.flash('success_messages', '成功登入！')
@@ -20,7 +20,7 @@ const loginRegisterController = {
     res.redirect('/')
   },
   registerPage: (req, res) => {
-    res.render('register', { cssStyle: registerCss.css })
+    res.render('user/register', { cssStyle: registerCss.css })
   },
   register: async (req, res) => {
     const { name, email, password, confirmPassword } = req.body
@@ -32,7 +32,7 @@ const loginRegisterController = {
     let newUser = { name, email }
     if (userInfo) {
       const errorMsg = `這個 Email 已經註冊過了。`
-      return res.render('rigster', { userInfo: newUser, error_msg: errorMsg, cssStyle: style.css })
+      return res.render('user/rigster', { userInfo: newUser, error_msg: errorMsg, cssStyle: style.css })
     }
     if (!userInfo && !lastId[lastId.length - 1]) {//[lastId.length - 1]，在node v16後可以用 .at(-1)替代 
       newUser.id = 1

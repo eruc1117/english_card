@@ -12,7 +12,7 @@ const testEndCss = new customize.PageCss('testEnd', PORT)
 
 const testController = {
   settingPage: (req, res) => {
-    res.render('testSetting', {
+    res.render('test/setting', {
       cssStyle: testSettingCss.css
     })
   },
@@ -20,7 +20,7 @@ const testController = {
     const testWordNum = req.body.number
     res.cookie('test', testWordNum, { maxAge: 90000, signed: true })
     res.cookie('numbering', 1)
-    res.redirect('/test')
+    res.redirect('test')
   },
   testPage: async (req, res) => {
     const userId = req.user.id
@@ -40,7 +40,7 @@ const testController = {
       examId.push(word.id)
     }
     res.cookie('examId', examId, { maxAge: 90000, signed: true })
-    res.render('test', {
+    res.render('test/test', {
       examination: totalTestWord, cssStyle: testCss.css
     })
   },
@@ -89,7 +89,7 @@ const testController = {
         }
       })
     }
-    res.render('testEnd', { end: correctAns, cssStyle: testEndCss.css })
+    res.render('test/testEnd', { end: correctAns, cssStyle: testEndCss.css })
   }
 }
 
