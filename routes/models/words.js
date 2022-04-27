@@ -3,6 +3,7 @@ const router = express.Router()
 const wordController = require('../../controller/word-controller')
 
 router.get('/list', wordController.getWords)
+router.post('/search', wordController.search)
 router.get('/previousWord/:id', wordController.previousWord)
 router.post('/edit/:id', wordController.editWord)
 router.get('/editWord/:id', wordController.editWordPage)

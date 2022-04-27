@@ -90,6 +90,11 @@ const wordController = {
     const id = Number(req.params.id)
     await Word.findOneAndDelete({ id })
     res.redirect('/word/list')
+  },
+  search: async (req, res) => {
+    const word = req.body.word
+    const result = await Word.find({ userId: req.user.id, word: new RegExp(`^${word}`, 'i') }).sort({ id: 1 }).lean()
+    res.render('words/index', { wordList: result, cssStyle: wordListCss.css })
   }
 }
 

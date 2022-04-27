@@ -1,9 +1,11 @@
 <div class="indexBody">
   <div class="words">
-    <div class="search">
-      <input>
-      <button>Search</button>
-    </div>
+    <form action="/word/search" method="post">
+      <div class="search">
+        <input type="text" name="word" required>
+        <button>Search</button>
+      </div>
+    </form>
     <div class="list">
       <ul>
         {{#each wordList}}
