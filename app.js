@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
@@ -7,7 +8,7 @@ const routes = require('./routes')
 const usePassport = require('./config/passport')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
-const PORT = 3000
+const PORT = process.env.PORT
 
 require('./config/mongoose')
 
@@ -24,9 +25,9 @@ app.use(
     outputStyle: 'compressed',
   })
 )
-app.use(cookieParser('eruc11111'))
+app.use(cookieParser(process.env.COOKIE_SECRET))
 app.use(session({
-  secret: 'ThisIsMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
