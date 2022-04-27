@@ -42,21 +42,22 @@ const wordController = {
   //單字詳細畫面中直接跳到前一個
   previousWord: async (req, res) => {
     const id = Number(req.params.id)
-    const preWord = await Word.find({ id: { $lt: id } }).sort({ id: -1 }).limit(1).lean()
+    const preWord = await Word.find({ id: { $lt: id }, userId: req.user.id }).sort({ id: -1 }).limit(1).lean()
     //不同使用者情況下id不一定能作為參考，改以物件存在與否
-    if ((id - 1) === 0) {
-      return res.redirect(`/enCrud/read/${id}`)
+    console.log(preWord)
+    if (!preWord.length) {
+      return res.redirect(`/word/${id}`)
     }
-    res.redirect(`/enCrud/read/${preWord[0].id}`)
+    res.redirect(`/word/${preWord[0].id}`)
   },
   //單字詳細畫面中直接跳到下一個
   nextWord: async (req, res) => {
     const id = Number(req.params.id)
-    const nextWordList = await Word.find({ id: { $gt: id } }).sort({ id: 1 }).limit(1).lean()
-    if (nextWordList.length === 0) {
-      return res.redirect(`/enCrud/read/${id}`)
+    const nextWord = await Word.find({ id: { $gt: id }, userId: req.user.id }).sort({ id: 1 }).limit(1).lean()
+    if (!nextWord.length) {
+      return res.redirect(`/word/${id}`)
     }
-    res.redirect(`/enCrud/read/${nextWordList[0].id}`)
+    res.redirect(`/word/${nextWord[0].id}`)
   },
   //新增單字功能
   newWordPage: (req, res) => {
