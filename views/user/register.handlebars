@@ -2,21 +2,17 @@
   <h1>Register</h1>
   <form action="/loginRegister/register" method="post">
     <div class="container">
-      <div class="name">
-        <label for="name">Name</label>
-        <input id="name" name="name" value="{{userInfo.name}}">
-      </div>
       <div class="email">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="{{userInfo.email}}">
+        <input type="email" id="email" name="email" value="{{userInfo.email}}" required>
       </div>
       <div class="password">
         <label for="password">Password</label>
-        <input type="password" d="password" name="password">
+        <input type="password" d="password" name="password" required>
       </div>
       <div class="confirm-password">
         <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" name="confirmPassword">
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
       </div>
       <button type="submit">Register</button>
       <a class="login" href="/login">Login</a>

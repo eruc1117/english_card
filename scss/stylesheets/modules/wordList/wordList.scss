@@ -23,11 +23,6 @@ i {
     justify-content: flex-start;
     align-items: center;
     align-content: stretch;
-
-    .yesterday,
-    .today {
-      display: none;
-    }
   }
 
   .words {
@@ -145,34 +140,6 @@ i {
     grid-template-areas:
       "yesterday main func"
       "today main futire";
-  }
-
-  .yesterday {
-    text-align: center;
-    grid-area: yesterday;
-
-    h3 {
-      margin-top: 8%;
-      font-size: 24px;
-    }
-
-    p {
-      margin-top: 3%;
-    }
-  }
-
-  .today {
-    text-align: center;
-    grid-area: today;
-
-    h3 {
-      margin-top: 8%;
-      font-size: 24px;
-    }
-
-    p {
-      margin-top: 3%;
-    }
   }
 
   .words {

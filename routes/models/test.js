@@ -4,7 +4,7 @@ const testController = require('../../controller/test-controller')
 
 router.get('/setting', testController.settingPage)
 router.post('/setting', testController.setting)
-router.get('/', testController.testPage)
 router.post('/', testController.test)
+router.get('', testController.testPage)
 
 module.exports = router

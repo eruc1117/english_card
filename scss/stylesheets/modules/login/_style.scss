@@ -55,29 +55,13 @@ $heighBigScreen : 50px;
   }
 }
 
-.resetPassword,
-.fbLogin {
+.resetPassword {
   margin-top: 1%;
   color: white;
   text-decoration: none;
 
   &:hover {
     color: black;
-  }
-}
-
-.fbLogin {
-  height: $heighSmScreen;
-  width: $input-width/2;
-  background-color: rgb(0, 0, 0);
-  @include border (black);
-  color: white;
-  text-align: center;
-  line-height: $heighSmScreen;
-
-  &:hover {
-    background-color: rgb(255, 255, 255);
-    border-width: 0px;
   }
 }
 
@@ -125,23 +109,6 @@ $heighBigScreen : 50px;
         background-color: rgb(255, 255, 255);
         color: black;
         border-width: 0px;
-      }
-    }
-
-    .fbLogin {
-      margin-top: 10px;
-      height: $heighBigScreen;
-      width: $input-width;
-      background-color: rgb(0, 0, 0);
-      @include border (black);
-      color: white;
-      text-align: center;
-      line-height: $heighBigScreen;
-
-      &:hover {
-        background-color: rgb(255, 255, 255);
-        border-width: 0px;
-        color: #000;
       }
     }
   }

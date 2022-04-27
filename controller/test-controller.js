@@ -20,7 +20,7 @@ const testController = {
     const testWordNum = req.body.number
     res.cookie('test', testWordNum, { maxAge: 90000, signed: true })
     res.cookie('numbering', 1)
-    res.redirect('test')
+    res.redirect('/test')
   },
   testPage: async (req, res) => {
     const userId = req.user.id
