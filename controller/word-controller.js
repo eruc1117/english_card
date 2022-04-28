@@ -1,5 +1,5 @@
 const Word = require('../models/WordModel')
-const PORT = 3000
+const PORT = process.env.PORT
 //載入自定義CSS物件
 const customize = require('../function/constructor')
 //根據頁面生成對應的CSS路徑

@@ -1,7 +1,6 @@
-const PORT = 3000
+const PORT = process.env.PORT
 const User = require('../models/UserModel')
 const customize = require('../function/constructor')
-const passport = require('passport')
 const bcrypt = require('bcryptjs')
 //根據頁面生成對應的CSS路徑
 const loginCss = new customize.PageCss('login', PORT)
