@@ -1,8 +1,8 @@
 function PageCss(name, env) {
   if (env !== 3000) {
-    this.css = `/stylesheets/${name}.css`
+    this.css = `https://eruc-english-card.herokuapp.com/stylesheets/${name}.css`
   } else {
-    this.css = `http://localhost:3000/stylesheets/${name}.css`
+    this.css = `https://localhost:3000/stylesheets/${name}.css`
   }
 }
 
