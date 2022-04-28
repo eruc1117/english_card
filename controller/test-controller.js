@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const MONGODB_URI = 'mongodb://localhost:27017'
+const MONGODB_URI = process.env.MONGODB_URI ||'mongodb://localhost:27017'
 const client = new MongoClient(MONGODB_URI);
 const dbName = 'english-card';
 const PORT = 3000
