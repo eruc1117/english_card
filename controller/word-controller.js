@@ -64,38 +64,57 @@ const wordController = {
     res.render('words/createWord', { cssStyle: page.css })
   },
   createWord: async (req, res) => {
-    const word = req.body
-    const latestItem = await Word.find().sort({ _id: -1 }).limit(1).lean()
-    if (latestItem.length === 0) {
-      word.id = 1
-    } else {
-      word.id = Number(latestItem[0].id) + 1
+    try {
+      const word = req.body
+      const latestItem = await Word.find().sort({ _id: -1 }).limit(1).lean()
+      if (latestItem.length === 0) {
+        word.id = 1
+      } else {
+        word.id = Number(latestItem[0].id) + 1
+      }
+      word.userId = req.user.id
+      await Word.create(word)
+      res.redirect('/word/list')
+    } catch (err) {
+      console.log(err)
     }
-    word.userId = req.user.id
-    await Word.create(word)
-    res.redirect('/word/list')
   },
   editWordPage: async (req, res) => {
-    const id = req.params.id
-    const word = await Word.findOne({ id }).lean()
-    res.render('words/editWord', { word, cssStyle: page.css })
+    try {
+      const id = req.params.id
+      const word = await Word.findOne({ id }).lean()
+      res.render('words/editWord', { word, cssStyle: page.css })
+    } catch (err) {
+      console.log(err)
+    }
   },
   editWord: async (req, res) => {
-    const word = req.body
-    const id = req.params.id
-    await Word.findOneAndUpdate({ id }, word)
-    res.redirect('/word/list')
+    try {
+      const word = req.body
+      const id = req.params.id
+      await Word.findOneAndUpdate({ id }, word)
+      res.redirect('/word/list')
+    } catch (err) {
+      console.log(err)
+    }
   },
   deleteWord: async (req, res) => {
-    const id = Number(req.params.id)
-    await Word.findOneAndDelete({ id })
-    res.redirect('/word/list')
+    try {
+      const id = Number(req.params.id)
+      await Word.findOneAndDelete({ id })
+      res.redirect('/word/list')
+    } catch (err) {
+      console.log(err)
+    }
   },
   search: async (req, res) => {
-    const word = req.body.word
-    const result = await Word.find({ userId: req.user.id, word: new RegExp(`^${word}`, 'i') }).sort({ id: 1 }).lean()
-    res.render('words/index', { wordList: result, cssStyle: wordListCss.css })
+    try {
+      const word = req.body.word
+      const result = await Word.find({ userId: req.user.id, word: new RegExp(`^${word}`, 'i') }).sort({ id: 1 }).lean()
+      res.render('words/index', { wordList: result, cssStyle: wordListCss.css })
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
-
 module.exports = wordController 
