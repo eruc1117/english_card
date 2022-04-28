@@ -41,7 +41,7 @@ const testController = {
   test: async (req, res) => {
     const userId = req.user.id
     const examNum = JSON.parse(req.body.examId)
-    const ans = Array.from(req.body.ans)
+    const ans = req.body.ans
     const correctAns = []
     const totalWord = await db.collection('records').find({
       id: {
@@ -64,8 +64,16 @@ const testController = {
         }
       }
     }
-    for (let num = 0; num < ans.length; num++) {
-      if (correctAns[num].word === ans[num]) {
+    const ansList = []
+    if ((typeof (ans) === 'string')) {
+      ansList.push(ans)
+    } else {
+      for (let index = 0; index < ans.length; index++) {
+        ansList.push(ans[index])
+      }
+    }
+    for (let num = 0; num < correctAns.length; num++) {
+      if (correctAns[num].word === ansList[num]) {
         correctAns[num].correctTimes < 5 ?
           correctAns[num].correctTimes += 1 :
           correctAns[num].correctTimes = 5
