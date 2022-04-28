@@ -7,7 +7,6 @@ const path = require('path')
 const routes = require('./routes')
 const usePassport = require('./config/passport')
 const session = require('express-session')
-const cookieParser = require('cookie-parser')
 const PORT = process.env.PORT
 
 require('./config/mongoose')
@@ -25,7 +24,6 @@ app.use(
     outputStyle: 'compressed',
   })
 )
-app.use(cookieParser(process.env.COOKIE_SECRET))
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,

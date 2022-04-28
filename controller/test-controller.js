@@ -16,20 +16,14 @@ const testController = {
       cssStyle: testSettingCss.css
     })
   },
-  setting: (req, res) => {
-    const testWordNum = req.body.number
-    res.cookie('test', testWordNum, { maxAge: 90000, signed: true })
-    res.cookie('numbering', 1)
-    res.redirect('/test')
-  },
   testPage: async (req, res) => {
     const userId = req.user.id
-    const testCookie = Number(req.signedCookies.test)
+    const testNum = Number(req.body.number)
     await client.connect();
     const totalTestWord = await db.collection('records')
       .aggregate(
         [{ "$match": { userId } },
-        { $sample: { size: testCookie } }]
+        { $sample: { size: testNum } }]
       ).toArray()
     const examId = []
     for (let index = 0; index < totalTestWord.length; index++) {
