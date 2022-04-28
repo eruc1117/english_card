@@ -4,12 +4,12 @@
       <div class="mx-2 my-2">
         <div class="mb-3">
           <label for="word" class="form-label">word</label>
-          <input type="text" class="form-control" name="word" id="word" value={{{word.word}}} required>
+          <input type="text" class="form-control" name="word" id="word" value="{{word.word}}" required>
         </div>
         <div class="mb-3">
           <label class="form-label">part of speech</label>
           <select class="form-select" aria-label="Default select example" name="partOfSpeech" required>
-            <option value={{{word.partOfSpeech}}}>{{{word.partOfSpeech}}}</option>
+            <option value="{{word.partOfSpeech}}">{{word.partOfSpeech}}</option>
             <option value="n.">n.</option>
             <option value="adj.">adj.</option>
             <option value="adv.">adv.</option>
@@ -23,16 +23,16 @@
         </div>
         <div class="mb-3">
           <label for="wordDefinitionEn" class="form-label">english definition</label>
-          <input type="text" class="form-control" id="wordDefinitionEn" name="enExplain" value="{{{word.enExplain}}}"
+          <input type="text" class="form-control" id="wordDefinitionEn" name="enExplain" value="{{word.enExplain}}"
             required>
         </div>
         <div class="mb-3">
           <label for="wordDefinition" class="form-label">definition</label>
-          <input type="text" class="form-control" id="wordDefinition" name="explain" value={{{word.explain}}} required>
+          <input type="text" class="form-control" id="wordDefinition" name="explain" value="{{word.explain}}" required>
         </div>
         <div class="mb-3">
           <label for="wordSentence" class="form-label">sentence</label>
-          <input type="text" class="form-control" id="wordSentence" name="sentence" value={{{word.sentence}}} required>
+          <input type="text" class="form-control" id="wordSentence" name="sentence" value="{{word.sentence}}" required>
         </div>
         <button type="submit" class="btn btn-primary">Edit</button>
       </div>
