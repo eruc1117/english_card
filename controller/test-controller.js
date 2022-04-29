@@ -12,10 +12,19 @@ const testCss = new customize.PageCss('test', PORT)
 const testEndCss = new customize.PageCss('testEnd', PORT)
 
 const testController = {
-  settingPage: (req, res) => {
-    res.render('test/setting', {
-      cssStyle: testSettingCss.css
-    })
+  settingPage: async (req, res) => {
+    try {
+      const userId = req.user.id
+      const totalWordNum = await Word.find({ userId })
+      if (!totalWordNum.length) {
+        return res.redirect('/word/list')
+      }
+      res.render('test/setting', {
+        cssStyle: testSettingCss.css
+      })
+    } catch (err) {
+      console.log(err)
+    }
   },
   testPage: async (req, res) => {
     try {
