@@ -10,7 +10,7 @@ router.get('/editWord/:id', wordController.editWordPage)
 router.get('/nextWord/:id', wordController.nextWord)
 router.get('/newWord', wordController.newWordPage)
 router.post('/create', wordController.createWord)
-router.get('/delete/:id', wordController.deleteWord)
+router.delete('/delete/:id', wordController.deleteWord)
 router.get('/:id', wordController.getWord)
 
 

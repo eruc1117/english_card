@@ -98,6 +98,21 @@ i {
     }
   }
 
+  .action {
+    display: flex;
+    flex-direction: row;
+    height: $lsitHeigh;
+    line-height: $lsitHeigh;
+
+    a {
+      margin-left: 5px;
+      margin-right: 5px;
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-size: 24px;
+    }
+  }
+
   .functionList {
     grid-area: func;
 
@@ -203,16 +218,6 @@ i {
           text-decoration: none;
           color: rgb(0, 0, 0);
           font-size: 24px;
-
-          .action {
-            height: $lsitHeigh;
-            line-height: $lsitHeigh;
-
-            a {
-              margin-left: 5px;
-              margin-right: 5px;
-            }
-          }
         }
       }
 
@@ -244,5 +249,12 @@ i {
         }
       }
     }
+  }
+
+  .action {
+    display: flex;
+    flex-direction: row;
+    height: $lsitHeigh;
+    line-height: $lsitHeigh;
   }
 }

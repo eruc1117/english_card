@@ -6,6 +6,7 @@ const sassMiddleware = require('node-sass-middleware')
 const path = require('path')
 const routes = require('./routes')
 const usePassport = require('./config/passport')
+const methodOverride = require('method-override')
 const session = require('express-session')
 const PORT = process.env.PORT
 
@@ -16,6 +17,7 @@ const handlebars = exphbs.create({
 app.engine('.handlebars', handlebars.engine)
 app.set('view engine', 'handlebars')
 app.set('views', './views')
+app.use(methodOverride('_method'))
 app.use(
   sassMiddleware({
     src: path.join(__dirname, 'scss'),

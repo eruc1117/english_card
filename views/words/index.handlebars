@@ -15,8 +15,14 @@
             <a class="word" href="/word/{{this.id}}">{{this.word}}</a>
           </div>
           <div class="action">
-            <a href="/word/editWord/{{this.id}}">Edit</a>
-            <a href="/word/delete/{{this.id}}">delete</a>
+            <div>
+              <a href="/word/editWord/{{this.id}}">Edit</a>
+            </div>
+            <div>
+              <form action="/word/delete/{{this.id}}?_method=DELETE" method="post">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
           </div>
         </li>
         {{/each}}
